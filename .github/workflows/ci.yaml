@@ -23,11 +23,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Enable Testcontainers Cloud
-        run: |
-          npm install -g @testcontainers/cli
-          testcontainers-cloud auth --token $TC_CLOUD_TOKEN
-          testcontainers-cloud up
+      - name: Setup Testcontainers Cloud
+        uses: atomicjar/testcontainers-cloud-setup-action@v1
+        with:
+          token: ${{ secrets.TC_CLOUD_TOKEN }}
 
       - name: Run tests
         run: npm test
