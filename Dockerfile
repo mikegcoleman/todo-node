@@ -1,6 +1,5 @@
-# -------- Stage 1: Builder --------
     FROM alpine:3.20 AS builder
-
+    
     # Install Node.js 20 and npm
     RUN apk add --no-cache nodejs-current npm
     

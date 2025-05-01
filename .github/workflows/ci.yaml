@@ -54,7 +54,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t $IMAGE_NAME:latest -t $IMAGE_NAME:${{ steps.vars.outputs.sha_short }} .
+          docker build -t $IMAGE_NAME:latest -t $IMAGE_NAME:${{ steps.vars.outputs.sha_short }} -f  .
 
       - name: Docker Scout Scan
         id: scout-scan
